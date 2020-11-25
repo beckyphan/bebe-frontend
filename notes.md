@@ -2,8 +2,10 @@ React App Notes
 
 # react redux portfolio project
 
+![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fidolforums.com%2Ftopic%2F741200-television-shows-rankdown%2F%3Fdo%3DfindComment%26comment%3D28309589&psig=AOvVaw3UysRPX9DBVChER2DFRPKu&ust=1606342466208000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKC8p5WanO0CFQAAAAAdAAAAABAO)
+
 ## the plan
-During this pandemic, many people have become new parents -- whether of new plants, new pets, or little humans. My project will be a daily tracker for these new parents to record the growth and care of their new little ones. For MVP, I’ll start with one type of bebe -- a human baby. I'll also limit some of the initial tracking attributes.
+During this pandemic, many people have become new parents -- whether of new plants, new pets, or little humans. My project will be a daily tracker for these new parents to record the growth and care of their new little ones. For MVP, I’ll start with one type of bebe -- a human baby.
 
 **User**
 * :name - string
@@ -44,6 +46,7 @@ validates_inclusion_of :info_type, :in => [‘’, ‘’ ‘’, ]
 3. Authorize => Bebe's Day (See Bebe's Day's Trackings)/Tracking Form
 
 Use of { Route, Link, BrowserRouter as Route, Redirect } from ‘react-router-dom’
+I don't plan on having too many direct navlinks because they should be accessed via relationships, but I should have a home page which directs to a user's dashboard upon login, and a user should be able to hit some edit profile/settings link to edit their information. Aside from that, user's bebes will be accessed through
 i.e.
 ```
 <Switch>
@@ -55,21 +58,25 @@ i.e.
 
 
 ## components
+class components: class extends React.Component which must have a render() { return (JSX) } and have state, lifecycle methods, and can contain custom class methods.
+pure components have state, lifecycle methods except for shouldComponentUpdate()
+functional components: const X = (props) => {return (JSX)} are forwhen we don't need state of lifecycle methods
+
 containers are components that render other components
-class components: class extends React.Component which must have a render() { return (JSX) }
-functional components: const X = (props) => {return (JSX)}
 
 ## the class components
-1. User Registration/Login User
-2. Bebes Container
+1. User Registration/Login User Form
 3. Create Bebe Form
 4. Update Bebe Form
-5. Data Container
 6. Create Data Form
 7. Update Data Form
 
 ## the stateless components (functional)
+these stateless components should not have local state, but can access state from the redux store via props passed down to the child component.
 1. NavBar to Display Routes/Links
+2. Bebes Container
+3. Calendar Container
+3. Data Container
 2. Read/Display User’s Info
 3. Read/Display Bebe’s Bio
 4. Read/Display Bebe’s Days
@@ -103,17 +110,22 @@ export function fetchBebes() {
 ### rails backend
 rails new bebe-backend --api --database=postgresql --no-test-framework
 (consider namespacing controllers into api/v1 to help with versioning organization in backend and use postgres for db)
-
-* create & commit to github
+I initially forgot to indicate the use of postgres upon creation, so had to go back and replace the db gem + update the database.yml file in the initializers/config folder.
 
 * set up models
 * set up controllers
 * configure routes (namespace routes api/v1)
 *e.g. rails g resource User username:string*
 * create serializers
-
 * create db/run migrations
 
+A good resource for determing whether to generate just the model, resources, or scaffold: https://medium.com/@matt.readout/rails-generators-model-vs-resource-vs-scaffold-19d6e24168ee
+
+One of the things I struggled with in the process with creating with javascript project with rails API backend was building vertically so it'll be good to continue practicing this!
+
+To start, I will need to build out the user model and making sure a user can register and login.
+Then I should create the bebe model and ensure the relationships between a user and bebe are all working and that a logged-in user is able to create and view bebes.
+Next, I will build the days model, the trackings model, and then ensuring everything works.
 
 ### react frontend
 create-react-app bebe-frontend
