@@ -5,7 +5,7 @@ const NavBar = (props) => {
 
   return (
     <div class="nav">
-      Navigation Bar Links Here
+       <NavLink exact activeClassName="active" to="/login">Login</NavLink>
     </div>
   )
 }
