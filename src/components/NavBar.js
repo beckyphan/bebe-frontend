@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const NavBar = (props) => {
 
   return (
-    <div class="nav">
+    <div className="nav">
        <NavLink exact activeClassName="active" to="/login">Login</NavLink>
     </div>
   )
