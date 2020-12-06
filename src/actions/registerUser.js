@@ -1,5 +1,4 @@
 export const registerUser = (credentials) => {
-  console.log(credentials)
   return (dispatch) => {
     fetch('http://localhost:3000/api/v1/users', {
       method: "POST",
@@ -10,8 +9,6 @@ export const registerUser = (credentials) => {
     })
     .then(response => response.json())
     .then(user => {
-      console.log("ACTIONS: registerUser")
-      console.log(user)
       if (user.error) {
         alert(user.error)
       } else {
