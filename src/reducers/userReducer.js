@@ -5,6 +5,10 @@ export default function userReducer(state = [], action) {
       console.log(action.payload.data)
       return { user: action.payload.data }
 
+    case 'REGISTER_USER':
+      console.log(action.payload.data)
+      return { user: action.payload.data }
+
     default:
       return state
   }
