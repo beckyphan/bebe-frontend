@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import LoginForm from './components/LoginForm'
+import RegistrationForm from './components/RegistrationForm'
 
 class App extends React.Component {
 
@@ -12,7 +13,9 @@ class App extends React.Component {
         <NavBar />
         <Switch>
           <Route exact path='/login' component={ LoginForm }/>
-        </Switch>
+          <Route exact path='/register' component={ RegistrationForm }/>
+
+      </Switch>
       </div>
     )
   }
