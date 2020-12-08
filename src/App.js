@@ -1,8 +1,9 @@
 import './App.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import HomePage from './components/Home'
 import LoginForm from './components/LoginForm'
 import RegistrationForm from './components/RegistrationForm'
 
@@ -13,8 +14,13 @@ class App extends React.Component {
       <div className="App">
         <NavBar user={this.props.user}/>
         <Switch>
-          <Route exact path='/login' component={ LoginForm }/>
-          <Route exact path='/register' component={ RegistrationForm }/>
+          <Route exact path='/login'>
+            { !!this.props.user.id ? <Redirect to='/' />: <LoginForm />}
+          </Route>
+          <Route exact path='/register'>
+            { !!this.props.user.id ? <Redirect to='/' />: <RegistrationForm />}
+          </Route>
+          <Route exact path='/' component={HomePage} />
         </Switch>
       </div>
     )
