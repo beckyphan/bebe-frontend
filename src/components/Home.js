@@ -6,7 +6,7 @@ const HomePage = (props) => {
   return (
     <div className="home">
       <h1>my bébé</h1>
-      <img src={Baby} className='babypic'/>
+      <img src={Baby} className='babypic' alt="baby"/>
     </div>
   )
 }
