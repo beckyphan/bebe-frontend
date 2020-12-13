@@ -6,8 +6,6 @@ import Bebes from './Bebes'
 class BebesContainer extends React.Component {
 
   componentDidMount() {
-    console.log("B")
-    console.log(this.props)
     this.props.fetchBebes(this.props.user.id)
   }
 

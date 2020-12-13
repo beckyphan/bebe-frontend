@@ -2,6 +2,8 @@ import React from 'react';
 
 const Bebes = (props) => {
 
+  console.log(props.bebes)
+
   function bebeCard(bebe) {
     return (
       <div key={bebe.id} className="card">
