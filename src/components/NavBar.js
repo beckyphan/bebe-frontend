@@ -7,8 +7,11 @@ const NavBar = (props) => {
 
   if (isLoggedIn) {
     return(
-      <div className="nav">
-        Welcome, {props.user.attributes.name}!
+      <div className="Welcome">
+        <h2>Welcome, {props.user.attributes.name}!</h2>
+        <div className="nav">
+          <NavLink exact activeClassName="active" to="/bebes">My Bébés</NavLink>
+        </div>
       </div>
     )
   } else {
