@@ -13,7 +13,7 @@ class BebesContainer extends React.Component {
 
   render() {
     return (
-      <div className="dashboard">
+      <div>
         <h1>my bébés</h1>
         <Bebes user={this.props.user} bebes={this.props.bebes}/>
       </div>
