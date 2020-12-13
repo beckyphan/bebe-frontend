@@ -34,7 +34,8 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   // access things in our store as this.props
   return {
-    user: state.user
+    user: state.user,
+    bebes: state.bebes
   }
 }
 
