@@ -18,7 +18,7 @@ const Bebes = (props) => {
 
   return (
     <div className="dashboard">
-      {props.bebes.map(bebe => bebeCard(bebe))}
+      {props.bebes.length > 0 ? props.bebes.map(bebe => bebeCard(bebe)): <p>No Children Yet!</p>}
     </div>
   )
 
