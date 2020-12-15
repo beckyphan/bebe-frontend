@@ -14,7 +14,7 @@ class BebeForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createBebe(this.state)
+    this.props.createBebe(this.state, this.props.user.id)
   }
 
   handleChange = (event) => {
