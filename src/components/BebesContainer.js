@@ -15,7 +15,7 @@ class BebesContainer extends React.Component {
       <div>
         <h1>my bébés</h1>
         <Bebes user={this.props.user} bebes={this.props.bebes}/>
-        <BebeForm />
+        <BebeForm user={this.props.user} />
       </div>
     )
   }
