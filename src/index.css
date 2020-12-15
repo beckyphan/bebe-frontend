@@ -61,6 +61,7 @@ textarea {
 }
 
 .card {
+  margin: 5px;
   width: 250px;
   border-radius: 5px;
   border-style: solid;
