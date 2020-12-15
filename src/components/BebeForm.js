@@ -7,7 +7,7 @@ class BebeForm extends React.Component {
   state = {
     name: '',
     birthdate: '',
-    kind: '',
+    kind: 'human',
     bio: '',
     img: ''
   }
