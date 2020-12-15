@@ -35,7 +35,17 @@ code {
   border-style: solid;
 }
 
+.card:hover {
+  background-color: #FFF0F5;
+}
+
 .align-left {
   padding: 0px 20px;
   text-align: left;
+}
+
+.headshot {
+  margin: 10px 10px 0px;
+  width: 200px;
+  border-radius: 50%;
 }

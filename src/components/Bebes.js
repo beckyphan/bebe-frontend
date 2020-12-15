@@ -7,6 +7,7 @@ const Bebes = (props) => {
   function bebeCard(bebe) {
     return (
       <div key={bebe.id} className="card">
+        <img src={bebe.attributes.img} alt="baby pic" className="headshot"/>
         <h3>{bebe.attributes.name}</h3>
         <p className="align-left">
           Kind: {bebe.attributes.kind} <br/>
