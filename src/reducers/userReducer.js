@@ -19,6 +19,11 @@ export default function userReducer(state = {user: [], bebes: []}, action) {
         bebes: action.payload.data
       }
 
+    case 'CREATE_BEBE':
+      return {
+        ...state
+      }
+
     default:
       return state
   }
