@@ -23,14 +23,18 @@ class RegistrationForm extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit} className='login'>
+      <form onSubmit={this.handleSubmit} className='registration'>
+
+        <div className="align-left">
         <label>Name: </label>
         <input type='text' value={this.state.name} name='name' onChange={this.handleChange} /><br/>
         <label>Username: </label>
         <input type='text' value={this.state.username} name='username' onChange={this.handleChange} /><br/>
         <label>Password: </label>
         <input type='password' value={this.state.password} name='password' onChange={this.handleChange} /><br/>
-        <input type='submit' />
+        </div>
+        
+        <input type='submit' className="center-button"/>
       </form>
     )
   }
