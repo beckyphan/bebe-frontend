@@ -16,10 +16,10 @@ class App extends React.Component {
         <NavBar user={this.props.user}/>
         <Switch>
           <Route exact path='/login'>
-            { !!this.props.user.id ? <Redirect to='/' />: <LoginForm />}
+            { !!this.props.user.id ? <Redirect to='/bebes' />: <LoginForm />}
           </Route>
           <Route exact path='/register'>
-            { !!this.props.user.id ? <Redirect to='/' />: <RegistrationForm />}
+            { !!this.props.user.id ? <Redirect to='/bebes' />: <RegistrationForm />}
           </Route>
           <Route exact path='/bebes'>
             { !!this.props.user.id ? <BebesContainer user={this.props.user} bebes={this.props.bebes}/>: <Redirect to='/' />}
