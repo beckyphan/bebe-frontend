@@ -31,6 +31,12 @@ export default function userReducer(state = {user: [], bebes: [], bebe: {}}, act
         bebe: action.payload.data
       }
 
+      case 'FETCH_BEBE_DAYS':
+      return {
+        ...state,
+        days: [action.payload.data]
+      }
+
     default:
       return state
   }
