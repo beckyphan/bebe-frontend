@@ -48,6 +48,15 @@ textarea {
   justify-content: space-around;
 }
 
+.active {
+  display: none;
+}
+
+.href {
+  color: black;
+  text-decoration: none;
+}
+
 .babypic {
   width: 100%;
 }
