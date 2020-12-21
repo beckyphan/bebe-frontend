@@ -20,10 +20,15 @@ export default function userReducer(state = {user: [], bebes: [], bebe: {}}, act
       }
 
     case 'CREATE_BEBE':
-      console.log(action.payload.data)
       return {
         ...state,
         bebes: [...state.bebes, action.payload.data]
+      }
+
+      case 'FETCH_A_BEBE':
+      return {
+        ...state,
+        bebe: action.payload.data
       }
 
     default:
