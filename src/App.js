@@ -7,6 +7,7 @@ import HomePage from './components/Home'
 import LoginForm from './components/LoginForm'
 import RegistrationForm from './components/RegistrationForm'
 import BebesContainer from './components/BebesContainer'
+import ABebeContainer from './components/ABebeContainer'
 
 class App extends React.Component {
 
@@ -21,6 +22,10 @@ class App extends React.Component {
           <Route exact path='/register'>
             { !!this.props.user.id ? <Redirect to='/bebes' />: <RegistrationForm />}
           </Route>
+          <Route exact path='/bebes/:id' render={props => {
+              return <ABebeContainer user={this.props.user} bebes={this.props.bebes} {...props} />
+            }
+          } />
           <Route exact path='/bebes'>
             { !!this.props.user.id ? <BebesContainer user={this.props.user} bebes={this.props.bebes}/>: <Redirect to='/' />}
           </Route>
