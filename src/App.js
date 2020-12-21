@@ -35,7 +35,8 @@ const mapStateToProps = (state) => {
   // access things in our store as this.props
   return {
     user: state.user,
-    bebes: state.bebes
+    bebes: state.bebes,
+    bebe: state.bebe
   }
 }
 
