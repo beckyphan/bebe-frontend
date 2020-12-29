@@ -31,6 +31,12 @@ export default function userReducer(state = {user: [], bebes: [], bebe: {}}, act
         bebe: action.payload.data
       }
 
+      case 'DELETE_BEBE':
+      return {
+        ...state,
+        bebes: state.bebes.filter(bebe => bebe.id !== action.payload.data.id)
+      }
+
       case 'FETCH_BEBE_DAYS':
       return {
         ...state,
