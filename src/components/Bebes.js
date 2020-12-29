@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { deleteBebe } from '../actions/deleteBebe'
 
 const Bebes = (props) => {
 
@@ -27,4 +29,10 @@ const Bebes = (props) => {
   )
 }
 
-export default Bebes
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  }
+}
+
+export default connect(mapStateToProps, { deleteBebe })(Bebes)
