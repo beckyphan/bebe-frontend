@@ -6,7 +6,6 @@ import BebeData from './BebeData'
 class ABebeContainer extends React.Component {
 
   componentDidMount() {
-    console.log("component did mount")
     this.props.fetchABebe(this.props.match.params.id, this.props.user.id)
   }
 
@@ -20,8 +19,6 @@ class ABebeContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("Showing one Bebe")
-  console.log(state)
   return {
     ...state,
     bebe: state.bebe

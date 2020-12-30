@@ -2,9 +2,7 @@ import React from 'react';
 import BebeDays from './BebeDays'
 
 const BebeData = (props) => {
-  console.log("in BebeData")
-  console.log(props)
-
+  
   return (
     <div className="show-bebe">
 
