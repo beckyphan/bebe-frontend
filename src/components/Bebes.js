@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { deleteBebe } from '../actions/deleteBebe'
+import { fetchBebeDays } from '../actions/fetchBebeDays'
 
 const Bebes = (props) => {
 
@@ -9,7 +10,7 @@ const Bebes = (props) => {
     return (
         <div key={bebe.id} className="card">
           <div className="button-parent"><button className="delete" id={bebe.id} onClick={(event) => props.deleteBebe(event.target.id, props.user.id)}>X</button></div><br/>
-          <NavLink to={`/bebes/${bebe.id}`} className="href" key={bebe.id}>
+          <NavLink to={`/bebes/${bebe.id}`} className="href" key={bebe.id} onClick={() => props.fetchBebeDays(bebe.id, props.user.id)}>
           <img src={bebe.attributes.img} alt="baby pic" className="headshot"/>
           <h3>{bebe.attributes.name}</h3>
           <p className="align-left">
@@ -35,4 +36,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { deleteBebe })(Bebes)
+export default connect(mapStateToProps, { deleteBebe, fetchBebeDays })(Bebes)

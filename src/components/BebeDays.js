@@ -1,12 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchBebeDays } from '../actions/fetchBebeDays'
 
 class BebeDays extends React.Component {
-
-  componentDidMount(){
-    this.props.fetchBebeDays(this.props.bebe.id, this.props.user.id)
-  }
 
   render() {
     return (
@@ -19,11 +14,9 @@ class BebeDays extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("BEBE DAYS")
-  console.log (state)
   return {
     ...state
   }
 }
 
-export default connect(mapStateToProps, {fetchBebeDays})(BebeDays)
+export default connect(mapStateToProps)(BebeDays)
