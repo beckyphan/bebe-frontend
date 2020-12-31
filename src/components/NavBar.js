@@ -17,8 +17,8 @@ const NavBar = (props) => {
   } else {
     return (
       <div className="nav">
-           <NavLink exact activeClassName="active" to="/login">Login</NavLink>
-           <NavLink exact activeClassName="active" to="/register">Register</NavLink>
+           <NavLink exact activeClassName="active" className="nav-link" to="/login">Login</NavLink>
+           <NavLink exact activeClassName="active" className="nav-link"  to="/register">Register</NavLink>
       </div>
     )
   }

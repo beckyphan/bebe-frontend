@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 100%;
+  min-height: 1200px;
+  background-image: url('media/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
@@ -19,6 +24,7 @@ form {
   border-radius: 5px;
   border-style: solid;
   line-height: 200%;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 textarea {
@@ -46,6 +52,17 @@ textarea {
 .nav {
   display: flex;
   justify-content: space-around;
+  padding: 10px;
+}
+
+.nav-link {
+  text-decoration: overline underline;
+  text-decoration-style: wavy;
+  color: black;
+}
+
+.nav-link:hover {
+  color: white;
 }
 
 .active {
@@ -58,7 +75,10 @@ textarea {
 }
 
 .babypic {
-  width: 100%;
+  width: 75%;
+  border-radius: 5px;
+  background-color: white;
+  padding: 25px;
 }
 
 .button-parent {
@@ -96,7 +116,7 @@ textarea {
 }
 
 .card:hover {
-  background-color: #FFF0F5;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .align-left {
