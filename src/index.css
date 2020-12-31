@@ -87,7 +87,7 @@ textarea {
 
 .delete {
   display: inline-block;
-  margin: 2px;
+  margin: 1px;
   border-radius: 50%;
   width: 25px;
   height: 25px;
@@ -125,7 +125,7 @@ textarea {
 }
 
 .headshot {
-  margin: 10px 10px 0px;
+  margin: 0px 10px 0px 10px;
   width: 200px;
   border-radius: 50%;
 }
