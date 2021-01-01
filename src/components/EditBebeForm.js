@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { editBebe } from '../actions/editBebe'
 
 class EditBebeForm extends React.Component {
   constructor(props) {
@@ -57,4 +59,4 @@ class EditBebeForm extends React.Component {
   }
 }
 
-export default EditBebeForm
+export default connect(null, { editBebe })(EditBebeForm)
