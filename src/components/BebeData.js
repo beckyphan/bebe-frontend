@@ -1,5 +1,6 @@
 import React from 'react';
 import BebeDays from './BebeDays'
+import DisplayBebeInfo from './DisplayBebeInfo'
 
 class BebeData extends React.Component {
 
@@ -22,16 +23,6 @@ class BebeData extends React.Component {
     }
   }
 
-  displayInfo = () => {
-    return (
-      <p className="align-left">
-        Kind: {this.props.bebe.attributes.kind} <br/>
-        Birthdate: {this.props.bebe.attributes.birthdate} <br/>
-        Bio: {this.props.bebe.attributes.bio} <br/>
-      </p>
-    )
-  }
-
   displayEditable = () => {
     return (
       <p>SHOW EDIT FORM</p>
@@ -45,7 +36,7 @@ class BebeData extends React.Component {
         <h1>{this.props.bebe.attributes.name}</h1>
         <img src={this.props.bebe.attributes.img} alt="baby pic" className="headshot"/><br/><br/>
         <button className="edit" onClick={this.toggleEdit}>Edit Info</button>
-        {this.state.editToggle ? this.displayEditable() : this.displayInfo()}
+        {this.state.editToggle ? this.displayEditable() : <DisplayBebeInfo kind={this.props.bebe.attributes.kind} birthdate={this.props.bebe.attributes.birthdate} bio={this.props.bebe.attributes.bio}/>}
         <BebeDays />
 
       </div>
