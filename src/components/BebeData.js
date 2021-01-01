@@ -1,24 +1,30 @@
 import React from 'react';
 import BebeDays from './BebeDays'
 
-const BebeData = (props) => {
+class BebeData extends React.Component {
 
-  return (
-    <div className="show-bebe">
+  constructor(props) {
+    super(props)
+  }
 
-      <h1>{props.bebe.attributes.name}</h1>
-      <img src={props.bebe.attributes.img} alt="baby pic" className="headshot"/><br/><br/>
-      <button className="edit">Edit Info</button>
-      <p className="align-left">
-        Kind: {props.bebe.attributes.kind} <br/>
-        Birthdate: {props.bebe.attributes.birthdate} <br/>
-        Bio: {props.bebe.attributes.bio} <br/>
-      </p>
+  render() {
+    return (
+      <div className="show-bebe">
 
-      <BebeDays />
+        <h1>{this.props.bebe.attributes.name}</h1>
+        <img src={this.props.bebe.attributes.img} alt="baby pic" className="headshot"/><br/><br/>
+        <button className="edit">Edit Info</button>
+        <p className="align-left">
+          Kind: {this.props.bebe.attributes.kind} <br/>
+          Birthdate: {this.props.bebe.attributes.birthdate} <br/>
+          Bio: {this.props.bebe.attributes.bio} <br/>
+        </p>
 
-    </div>
-  )
+        <BebeDays />
+
+      </div>
+    )
+  }
 }
 
 export default BebeData
