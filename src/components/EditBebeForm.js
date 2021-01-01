@@ -9,14 +9,14 @@ class EditBebeForm extends React.Component {
       birthdate: this.props.birthdate,
       kind: this.props.kind,
       bio: this.props.bio,
-      img: this.props.img
+      img: this.props.img,
+      id: this.props.bebeId
     }
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log("EDIT BEBE FORM SUBMITTED")
-    console.log(event)
+    this.props.editBebe(this.state, this.props.user.id)
   }
 
   handleChange = (event) => {
