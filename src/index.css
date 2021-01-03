@@ -45,21 +45,29 @@ textarea {
   color: white;
 }
 
-.day {
-  display: block;
+.daysList {
+  margin: 0 auto;
+  width: 80%;
 }
 
-.day button {
+.daysList button {
   margin: 5px;
-  height: 30px;
+  height: 75px;
   width: 100px;
   border-radius: 15px;
   background-color: white;
 }
 
-.day button:hover {
+.daysList button:hover {
   background-color: plum;
   color: white;
+}
+
+button.showMore {
+  margin: 0 auto;
+  height: 20px;
+  width: 100px;
+  display: block;
 }
 
 .align-left {

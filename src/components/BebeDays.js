@@ -34,7 +34,7 @@ class BebeDays extends React.Component {
     }
 
     return (
-      <div>
+      <div className="daysList">
         <h3> Days </h3>
         { body }
         { this.state.daysShown > this.props.days.length ? null : <button className="showMore" onClick={this.handleClick}>Show More</button>}

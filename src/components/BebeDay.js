@@ -26,10 +26,10 @@ class BebeDay extends React.Component {
     }
 
     return (
-      <div className="day">
+      <>
         <button onClick={this.handleClick}>{this.props.date}</button>
         {body}
-      </div>
+      </>
     )
   }
 }
