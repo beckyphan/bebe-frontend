@@ -12,7 +12,7 @@ class ABebeContainer extends React.Component {
   render() {
     return (
       <div>
-        { !!this.props.bebe.attributes ? <BebeData bebe={this.props.bebe}/> : <p>Loading...</p>}
+        { !!this.props.bebes.bebe ? <BebeData bebe={this.props.bebes.bebe}/> : <p>Loading...</p>}
       </div>
     )
   }
@@ -20,8 +20,7 @@ class ABebeContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    ...state,
-    bebe: state.bebe
+    ...state
   }
 }
 
