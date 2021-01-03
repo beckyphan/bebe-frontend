@@ -2,6 +2,7 @@ import React from 'react';
 import BebeDays from './BebeDays'
 import DisplayBebeInfo from './DisplayBebeInfo'
 import EditBebeForm from './EditBebeForm'
+import { connect } from 'react-redux'
 
 class BebeData extends React.Component {
 
@@ -72,4 +73,4 @@ class BebeData extends React.Component {
   }
 }
 
-export default BebeData
+export default connect(null, {createDay})(BebeData)
