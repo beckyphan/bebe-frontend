@@ -8,10 +8,12 @@ import { Provider } from 'react-redux';
 import App from './App';
 import userReducer from './reducers/userReducer'
 import bebeReducer from './reducers/bebeReducer'
+import dayReducer from './reducers/dayReducer'
 
 const rootReducer = combineReducers({
   user: userReducer,
   bebes: bebeReducer,
+  days: dayReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
