@@ -8,6 +8,11 @@ export default function bebeReducer(state = [], action) {
         state.push(action.payload.data)
         return state
 
+      case 'EDIT_BEBE':
+        return {
+          bebe: action.payload.data
+        }
+
       case 'FETCH_A_BEBE':
         return {
           bebe: action.payload.data
