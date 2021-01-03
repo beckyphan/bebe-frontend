@@ -14,14 +14,15 @@ class BebeData extends React.Component {
   }
 
   toggleEdit = () => {
-    if (this.state.editToggle) {
-      this.setState({
-        editToggle: false
-      })
-    } else {
-      this.setState({
-        editToggle: true
-      })
+    this.setState({
+      ...this.state,
+      editToggle: !this.state.editToggle
+    })
+  }
+
+  createDay = () => {
+    let newBebeDay = {
+
     }
   }
 
