@@ -11,15 +11,9 @@ class BebeDay extends React.Component {
   }
 
   handleClick = () => {
-    if (this.state.showData) {
-      this.setState({
-        showData: false
-      })
-    } else {
-      this.setState({
-        showData: true
-      })
-    }
+    this.setState({
+      showData: !this.state.showData
+    })
   }
 
   render() {
