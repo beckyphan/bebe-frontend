@@ -21,4 +21,10 @@ class BebesContainer extends React.Component {
   }
 }
 
-export default connect(null, {fetchBebes})(BebesContainer)
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  }
+}
+
+export default connect(mapStateToProps, {fetchBebes})(BebesContainer)

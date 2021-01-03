@@ -27,7 +27,7 @@ class App extends React.Component {
             }
           } />
           <Route exact path='/bebes'>
-            { !!this.props.user.id ? <BebesContainer user={this.props.user} bebes={this.props.bebes}/>: <Redirect to='/' />}
+            { !!this.props.user.id ? <BebesContainer />: <Redirect to='/' />}
           </Route>
           <Route exact path='/' component={HomePage} />
         </Switch>
