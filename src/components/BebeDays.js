@@ -2,18 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux'
 import BebeDay from './BebeDay'
 
-const BebeDays = (props) => {
+class BebeDays extends React.Component {
 
-  function displayDay(day) {
+
+  displayDay = (day) => {
     return <BebeDay key={day.id} date={day.attributes.date}/>
   }
 
-  return (
-    <div>
-      <h3> Days </h3>
-      { !!props.days && !!props.days.length > 0 ? props.days.map(day => displayDay(day)) : <p>No Data Collected Yet!</p> }
-    </div>
-  )
+  render() {
+    let body;
+
+    if (this.props.days.length === 0) {
+      body = <p>No Data Collected Yet!</p>
+    } else {
+      body = this.props.days.map(day => this.displayDay(day))
+    }
+
+    return (
+      <div>
+        <h3> Days </h3>
+        { body }
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
