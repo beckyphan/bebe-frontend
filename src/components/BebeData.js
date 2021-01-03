@@ -9,7 +9,8 @@ class BebeData extends React.Component {
     super(props)
 
     this.state = {
-      editToggle: false
+      editToggle: false,
+      dayToggle: false
     }
   }
 
@@ -35,6 +36,7 @@ class BebeData extends React.Component {
         {!this.state.editToggle ? <button className="edit" onClick={this.toggleEdit}>Edit Info</button> : null}
         {this.state.editToggle ? <EditBebeForm user={this.props.bebe.relationships.user.data} name={this.props.bebe.attributes.name} kind={this.props.bebe.attributes.kind} birthdate={this.props.bebe.attributes.birthdate} bio={this.props.bebe.attributes.bio} img={this.props.bebe.attributes.img} bebeId={this.props.bebe.id} />: <DisplayBebeInfo kind={this.props.bebe.attributes.kind} birthdate={this.props.bebe.attributes.birthdate} bio={this.props.bebe.attributes.bio}/>}
         <BebeDays />
+        <button className="addDay" onClick={this.createDay}> + </button>
 
       </div>
     )
