@@ -7,8 +7,11 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import App from './App';
 import userReducer from './reducers/userReducer'
+import bebeReducer from './reducers/bebeReducer'
+
 const rootReducer = combineReducers({
   user: userReducer,
+  bebes: bebeReducer,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
