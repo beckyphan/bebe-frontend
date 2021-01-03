@@ -4,6 +4,10 @@ export default function dayReducer(state = [], action) {
     case 'FETCH_BEBE_DAYS':
       return action.payload.data
 
+    case 'CREATE_DAY':
+      state.push(action.payload.data)
+      return state
+
     default:
       return state
   }
