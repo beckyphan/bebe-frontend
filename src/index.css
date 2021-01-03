@@ -45,6 +45,23 @@ textarea {
   color: white;
 }
 
+.day {
+  display: block;
+}
+
+.day button {
+  margin: 5px;
+  height: 30px;
+  width: 100px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.day button:hover {
+  background-color: plum;
+  color: white;
+}
+
 .align-left {
   text-align: left;
 }
