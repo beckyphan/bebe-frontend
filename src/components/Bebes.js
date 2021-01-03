@@ -30,10 +30,4 @@ const Bebes = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    ...state
-  }
-}
-
-export default connect(mapStateToProps, { deleteBebe, fetchBebeDays })(Bebes)
+export default connect(null, { deleteBebe, fetchBebeDays })(Bebes)
