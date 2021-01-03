@@ -3,6 +3,7 @@ import BebeDays from './BebeDays'
 import DisplayBebeInfo from './DisplayBebeInfo'
 import EditBebeForm from './EditBebeForm'
 import { connect } from 'react-redux'
+import { createDay } from '../actions/createDay'
 
 class BebeData extends React.Component {
 
@@ -37,19 +38,11 @@ class BebeData extends React.Component {
       date: this.state.newDayData
     }
 
-    fetch('http://localhost:3000/api/v1/users/' + this.props.bebe.relationships.user.data.id + '/bebes/' + this.props.bebe.id + '/days', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newBebeDay)
-      })
-    .then(response => response.json())
-    .then(day => {
-      this.setState({
-        ...this.state,
-        newDayData: ""
-      })
+    this.props.createDay(newBebeDay, this.props.bebe.relationships.user.data.id)
+
+    this.setState({
+      ...this.state,
+      newDayData: ""
     })
   }
 
