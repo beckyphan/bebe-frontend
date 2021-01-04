@@ -8,7 +8,6 @@ export const deleteBebe = (bebeId, userId) => {
     })
     .then(response => response.json())
     .then(bebe => {
-        console.log(bebe)
         dispatch({type: 'DELETE_BEBE', payload: bebe})
     })
   }
