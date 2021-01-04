@@ -1,23 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchTrackings } from '../actions/fetchTrackings'
+import { deleteTracking } from '../actions/deleteTracking'
 
 
 class BebeDay extends React.Component {
 
   constructor(props) {
     super(props)
-    this.props.fetchTrackings(this.props.dayId, this.props.user.id, this.props.bebes.bebe.id)
 
     this.state = {
       showData: false,
-      trackingData: this.props.trackings.filter((data) => data.relationships.day.data.id === this.props.dayId)
+      trackingData: []
     }
   }
 
   handleClick = () => {
-    this.setState({
-      showData: !this.state.showData,
+    fetch('http://localhost:3000/api/v1/users/' + this.props.user.id + '/bebes/'  + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings')
+    .then(response => response.json())
+    .then(trackings => {
+      console.log(trackings.data)
+
+      this.setState({
+        showData: !this.state.showData,
+        trackingData: trackings.data
+      })
     })
   }
 
@@ -29,6 +35,7 @@ class BebeDay extends React.Component {
         <td>{data.attributes.amount}</td>
         <td>{data.attributes.amount_unit}</td>
         <td>{data.attributes.notes ? data.attributes.notes : "None"}</td>
+        <td><button className="delete" id={data.id} onClick={(event) => this.props.deleteTracking(event.target.id, this.props.user.id, this.props.bebes.bebe.id, this.props.dayId)}>X</button></td>
       </tr>
     )
   }
@@ -46,8 +53,9 @@ class BebeDay extends React.Component {
               <th>Amount</th>
               <th>Amount Unit</th>
               <th>Notes</th>
+              <th>X</th>
             </tr>
-          {this.state.trackingData.map((data) => this.createDataRow(data))}
+          {this.state.trackingData.length > 0 ? this.state.trackingData.map((data) => this.createDataRow(data)) : null}
           </tbody>
         </table>
       </div>
@@ -70,4 +78,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchTrackings })(BebeDay)
+export default connect(mapStateToProps, { deleteTracking })(BebeDay)
