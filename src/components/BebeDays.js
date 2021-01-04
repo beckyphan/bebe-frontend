@@ -13,7 +13,7 @@ class BebeDays extends React.Component {
   }
 
   displayDay = (day) => {
-    return <BebeDay key={day.id} date={day.attributes.date}/>
+    return <BebeDay key={day.id} dayId={day.id} date={day.attributes.date}/>
   }
 
   handleClick = (prevState) => {

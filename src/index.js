@@ -9,11 +9,13 @@ import App from './App';
 import userReducer from './reducers/userReducer'
 import bebeReducer from './reducers/bebeReducer'
 import dayReducer from './reducers/dayReducer'
+import trackingReducer from './reducers/trackingReducer'
 
 const rootReducer = combineReducers({
   user: userReducer,
   bebes: bebeReducer,
-  days: dayReducer
+  days: dayReducer,
+  trackings: trackingReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
