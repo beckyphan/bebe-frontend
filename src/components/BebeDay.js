@@ -18,12 +18,27 @@ class BebeDay extends React.Component {
     fetch('http://localhost:3000/api/v1/users/' + this.props.user.id + '/bebes/'  + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings')
     .then(response => response.json())
     .then(trackings => {
-      console.log(trackings.data)
-
       this.setState({
         showData: !this.state.showData,
         trackingData: trackings.data
       })
+    })
+  }
+
+  deleteTracking = (event) => {
+    fetch('http://localhost:3000/api/v1/users/' + this.props.user.id + '/bebes/' + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings/' + event.target.id , {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => response.json())
+    .then(tracking => {
+      this.setState((prevState) => ({
+          ...this.state,
+          trackingData: prevState.trackingData.filter(list => list.id !== tracking.data.id)
+        })
+      )
     })
   }
 
@@ -35,7 +50,7 @@ class BebeDay extends React.Component {
         <td>{data.attributes.amount}</td>
         <td>{data.attributes.amount_unit}</td>
         <td>{data.attributes.notes ? data.attributes.notes : "None"}</td>
-        <td><button className="delete" id={data.id} onClick={(event) => this.props.deleteTracking(event.target.id, this.props.user.id, this.props.bebes.bebe.id, this.props.dayId)}>X</button></td>
+        <td><button className="delete" id={data.id} onClick={this.deleteTracking}>X</button></td>
       </tr>
     )
   }
