@@ -60,19 +60,38 @@ class BebeDay extends React.Component {
 
     if (this.state.showData) {
       body = <div className="trackingsData">
-        <table>
-          <tbody>
+        <form>
+          <table>
+            <tbody>
+              <tr>
+                <th>Start Time/End Time</th>
+                <th>Data</th>
+                <th>Amount</th>
+                <th>Amount Unit</th>
+                <th>Notes</th>
+                <th></th>
+              </tr>
+
+            {this.state.trackingData.length > 0 ? this.state.trackingData.map((data) => this.createDataRow(data)) : null}
+
             <tr>
-              <th>Start Time/End Time</th>
-              <th>Data</th>
-              <th>Amount</th>
-              <th>Amount Unit</th>
-              <th>Notes</th>
-              <th>X</th>
+              <td><label>Start:</label><input type="time" name="start_time"></input> <label>End:</label><input type="time" name="end_time"></input></td>
+              <td><select name="info_type">
+                <option value="food">food</option>
+                <option value="water">water</option>
+                <option value="pee">pee</option>
+                <option value="poop">poop</option>
+                <option value="exercise">exercise</option>
+                <option value="sleep">sleep</option>
+            </select></td>
+          <td><input type="number" name="amount" placeholder="amount"/></td>
+              <td><input type="text" name="amount_unit" placeholder="unit"/></td>
+              <td><input type="text" name="notes" placeholder="notes"/></td>
+              <td><input type="submit" className="addSubmit" value="+"/></td>
             </tr>
-          {this.state.trackingData.length > 0 ? this.state.trackingData.map((data) => this.createDataRow(data)) : null}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </form>
       </div>
     } else {
       body = null;

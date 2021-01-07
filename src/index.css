@@ -140,6 +140,21 @@ button.delete:hover {
   color: black;
 }
 
+.addSubmit {
+  display: inline-block;
+  margin: 1px;
+  border-radius: 20%;
+  width: 25px;
+  height: 25px;
+  background-color: plum;
+  color: black;
+}
+
+.addSubmit:hover {
+  background-color: cornflowerblue;
+  color: white;
+}
+
 .dashboard {
   display: flex;
   flex-flow: row wrap;
