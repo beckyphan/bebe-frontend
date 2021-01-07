@@ -38,7 +38,7 @@ class EditBebeForm extends React.Component {
     let body;
 
     if (!this.state.submitted) {
-      body = <form onSubmit={this.handleSubmit} className='new-bebe'>
+      body = <form onSubmit={this.handleSubmit} className='edit-bebe form'>
         <div className="align-left">
         <label>Name: </label>
         <input type='text' value={this.state.name} name='name' onChange={this.handleChange} /><br/>

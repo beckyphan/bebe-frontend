@@ -37,7 +37,7 @@ class BebeForm extends React.Component {
   render() {
     return(
         <div className="new-card">
-          <form onSubmit={this.handleSubmit} className='new-bebe'>
+          <form onSubmit={this.handleSubmit} className='new-bebe form'>
             <div className="align-left">
             <label>Name: </label>
             <input type='text' value={this.state.name} name='name' onChange={this.handleChange} /><br/>
