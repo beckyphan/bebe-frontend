@@ -97,8 +97,15 @@ button.showMore {
   display: block;
 }
 
-.align-left {
+div.align-center {
+  margin: 25px auto;
+  padding: 10px;
   text-align: left;
+  background-color: rgba(255, 255, 255, 0.2)
+}
+
+div.align-center:hover {
+  background-color: rgba(255, 255, 255, 0.2)
 }
 
 .nav {

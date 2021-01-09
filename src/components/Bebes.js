@@ -13,10 +13,6 @@ const Bebes = (props) => {
           <NavLink to={`/bebes/${bebe.id}`} className="href" key={bebe.id} onClick={() => props.fetchBebeDays(bebe.id, props.user.id)}>
           <img src={bebe.attributes.img} alt="baby pic" className="headshot"/>
           <h3>{bebe.attributes.name}</h3>
-          <p className="align-left">
-            Kind: {bebe.attributes.kind} <br/>
-            Birthdate: {bebe.attributes.birthdate} <br/>
-            Bio: {bebe.attributes.bio}</p>
           </NavLink>
         </div>
 
