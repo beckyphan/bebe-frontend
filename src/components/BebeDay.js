@@ -10,8 +10,20 @@ class BebeDay extends React.Component {
 
     this.state = {
       showData: false,
-      trackingData: []
+      trackingData: [],
+      start_time: "",
+      end_time: "",
+      info_type: "food",
+      amount: 0,
+      amount_unit: "",
+      note: ""
     }
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   handleClick = () => {
@@ -23,6 +35,41 @@ class BebeDay extends React.Component {
         trackingData: trackings.data
       })
     })
+  }
+
+  createTracking = () => {
+    fetch('http://localhost:3000/api/v1/users/' + this.props.user.id + '/bebes/'  + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings', {
+      method: "POST",
+      headers: {
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(response => response.json())
+    .then(tracking => {
+      if (tracking.error) {
+        alert(tracking.error)
+      } else {
+        let trackingDataArray = this.state.trackingData.slice()
+        trackingDataArray.push(tracking.data)
+        this.setState({
+          ...this.state,
+          trackingData: trackingDataArray,
+          start_time: "",
+          end_time: "",
+          info_type: "food",
+          amount: 0,
+          amount_unit: "",
+          note: ""
+        })
+      }
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(this.state)
+    this.createTracking()
   }
 
   deleteTracking = (event) => {
@@ -49,7 +96,7 @@ class BebeDay extends React.Component {
         <td>{data.attributes.info_type}</td>
         <td>{data.attributes.amount}</td>
         <td>{data.attributes.amount_unit}</td>
-        <td>{data.attributes.notes ? data.attributes.notes : "None"}</td>
+        <td>{data.attributes.note ? data.attributes.note : "None"}</td>
         <td><button className="delete" id={data.id} onClick={this.deleteTracking}>X</button></td>
       </tr>
     )
@@ -60,24 +107,23 @@ class BebeDay extends React.Component {
 
     if (this.state.showData) {
       body = <div className="trackingsData">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <table>
             <tbody>
               <tr>
-                <th>Start Time/End Time</th>
                 <th>Start Time <br/> End Time</th>
                 <th>Data</th>
                 <th>Amount</th>
                 <th>Amount Unit</th>
-                <th>Notes</th>
+                <th>Note</th>
                 <th></th>
               </tr>
 
             {this.state.trackingData.length > 0 ? this.state.trackingData.map((data) => this.createDataRow(data)) : null}
 
             <tr>
-              <td><label>Start:</label><input type="time" name="start_time"></input> <label>End:</label><input type="time" name="end_time"></input></td>
-              <td><select name="info_type">
+              <td><label>Start:</label><input type="time" name="start_time" onChange={this.handleChange}></input> <label>End:</label><input type="time" name="end_time" onChange={this.handleChange}></input></td>
+              <td><select name="info_type" onChange={this.handleChange}>
                 <option value="food">food</option>
                 <option value="water">water</option>
                 <option value="pee">pee</option>
@@ -85,9 +131,9 @@ class BebeDay extends React.Component {
                 <option value="exercise">exercise</option>
                 <option value="sleep">sleep</option>
             </select></td>
-          <td><input type="number" name="amount" placeholder="amount"/></td>
-              <td><input type="text" name="amount_unit" placeholder="unit"/></td>
-              <td><input type="text" name="notes" placeholder="notes"/></td>
+          <td><input type="number" name="amount" placeholder="amount" onChange={this.handleChange}/></td>
+              <td><input type="text" name="amount_unit" placeholder="unit" onChange={this.handleChange}/></td>
+              <td><input type="text" name="note" placeholder="note" onChange={this.handleChange}/></td>
               <td><input type="submit" className="addSubmit" value="+"/></td>
             </tr>
             </tbody>
