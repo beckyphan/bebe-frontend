@@ -59,7 +59,7 @@ class BebeData extends React.Component {
         <br/>
         <form className="addDay" onSubmit={this.handleSubmit}>
           <input type="date" name="newDayData" value={this.state.newDayData} onChange={this.handleChange} />
-          <input type="submit" value="+"/>
+          <input type="submit" className="addSubmit" value="+"/>
         </form>
       </div>
     )

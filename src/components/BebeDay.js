@@ -68,7 +68,6 @@ class BebeDay extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
     this.createTracking()
   }
 
