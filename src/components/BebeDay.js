@@ -92,6 +92,7 @@ class BebeDay extends React.Component {
             </tbody>
           </table>
         </form>
+        <br/><br/>
       </div>
     } else {
       body = null;

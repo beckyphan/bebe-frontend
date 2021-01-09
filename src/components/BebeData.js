@@ -56,7 +56,7 @@ class BebeData extends React.Component {
         {this.state.editToggle ? <EditBebeForm user={this.props.bebe.relationships.user.data} name={this.props.bebe.attributes.name} kind={this.props.bebe.attributes.kind} birthdate={this.props.bebe.attributes.birthdate} bio={this.props.bebe.attributes.bio} img={this.props.bebe.attributes.img} bebeId={this.props.bebe.id} />: <DisplayBebeInfo kind={this.props.bebe.attributes.kind} birthdate={this.props.bebe.attributes.birthdate} bio={this.props.bebe.attributes.bio}/>}
 
         <BebeDays/>
-
+        <br/>
         <form className="addDay" onSubmit={this.handleSubmit}>
           <input type="date" name="newDayData" value={this.state.newDayData} onChange={this.handleChange} />
           <input type="submit" value="+"/>
