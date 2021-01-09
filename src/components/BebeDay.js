@@ -45,7 +45,7 @@ class BebeDay extends React.Component {
   createDataRow = (data) => {
     return(
       <tr key={data.id}>
-        <td>{data.attributes.start_time} / {data.attributes.end_time}</td>
+        <td>{data.attributes.start_time} <br/> {data.attributes.end_time}</td>
         <td>{data.attributes.info_type}</td>
         <td>{data.attributes.amount}</td>
         <td>{data.attributes.amount_unit}</td>
@@ -65,6 +65,7 @@ class BebeDay extends React.Component {
             <tbody>
               <tr>
                 <th>Start Time/End Time</th>
+                <th>Start Time <br/> End Time</th>
                 <th>Data</th>
                 <th>Amount</th>
                 <th>Amount Unit</th>
