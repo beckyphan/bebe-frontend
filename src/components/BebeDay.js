@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { deleteTracking } from '../actions/deleteTracking'
 
 
 class BebeDay extends React.Component {
@@ -159,4 +158,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { deleteTracking })(BebeDay)
+export default connect(mapStateToProps)(BebeDay)
