@@ -44,6 +44,7 @@ th {
 td {
   width: 100px;
   font-size: 0.9em;
+  background-color: rgba(255,255,255,0.2);
 }
 
 .center-button {
@@ -76,6 +77,13 @@ td {
 .daysList button:hover {
   background-color: plum;
   color: white;
+}
+
+button.trueShow {
+  display: block;
+  background-color: plum;
+  height: 20px;
+  width: 100px;
 }
 
 button.showMore {

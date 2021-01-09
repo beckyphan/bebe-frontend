@@ -99,7 +99,7 @@ class BebeDay extends React.Component {
 
     return (
       <>
-        <button onClick={this.handleClick}>{this.props.date}</button>
+        <button onClick={this.handleClick} className={this.state.showData+'Show'}>{this.props.date}</button>
         {body}
       </>
     )
