@@ -5,8 +5,7 @@ export default function bebeReducer(state = [], action) {
         return action.payload.data
 
       case 'CREATE_BEBE':
-        state.push(action.payload.data)
-        return state
+        return state.concat(action.payload.data)
 
       case 'EDIT_BEBE':
         return {
