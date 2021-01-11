@@ -46,7 +46,6 @@ th {
 }
 
 td {
-  width: 100px;
   font-size: 0.9em;
   background-color: rgba(255,255,255,0.05);
 }
@@ -67,13 +66,13 @@ td {
 
 .daysList {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 }
 
 .daysList button {
   margin: 5px;
   height: 75px;
-  width: 100px;
+  width: 120px;
   border-radius: 15px;
   background-color: white;
 }
@@ -87,7 +86,7 @@ button.trueShow {
   display: block;
   background-color: plum;
   height: 30px;
-  width: 100px;
+  width: 175px;
 }
 
 button.showMore {

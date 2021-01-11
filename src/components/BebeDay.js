@@ -1,5 +1,5 @@
 import React from 'react';
-// import Time from 'react-time-format'
+import { addHours, format } from 'date-fns'
 import { connect } from 'react-redux'
 
 
@@ -91,7 +91,7 @@ class BebeDay extends React.Component {
   createDataRow = (data) => {
     return(
       <tr key={data.id}>
-        // <td><Time value={data.attributes.start_time} format="hh:mm"/> {data.attributes.end_time === null ? null:<> - </>} <Time value={data.attributes.end_time} format="hh:mm"/></td>
+        <td>{format(addHours(new Date(data.attributes.start_time), 8), 'p')} {data.attributes.end_time === null ? null:<> - </>}{data.attributes.end_time === null ? null: format(addHours(new Date(data.attributes.end_time), 8), 'p')}</td>
         <td>{data.attributes.info_type}</td>
         <td>{data.attributes.amount}</td>
         <td>{data.attributes.amount_unit}</td>
@@ -110,7 +110,7 @@ class BebeDay extends React.Component {
           <table>
             <tbody>
               <tr>
-                <th>Start Time <br/> End Time</th>
+                <th>Start/End Time</th>
                 <th>Data</th>
                 <th>Amount</th>
                 <th>Amount Unit</th>
@@ -144,12 +144,30 @@ class BebeDay extends React.Component {
       body = null;
     }
 
-    return (
-      <>
-        <button onClick={this.handleClick} className={this.state.showData+'Show'}>{this.props.date}</button>
+    let falseShow = <button onClick={this.handleClick} className={this.state.showData+'Show'}>
+      {format(addHours(new Date(this.props.date), 8), "'  - 'yyyy' -  '")}<br/>{format(addHours(new Date(this.props.date), 8), "eee',' MM/dd")}
+    </button>;
+
+    let trueShow = <button onClick={this.handleClick} className={this.state.showData+'Show'}>
+      {format(addHours(new Date(this.props.date), 8), "eee',' MM/dd/yyyy")}
+    </button>;
+
+
+    if (this.state.showData === false) {
+      return (
+        <>
+        {falseShow}
         {body}
-      </>
-    )
+        </>
+      )
+    } else {
+      return (
+        <>
+        {trueShow}
+        {body}
+        </>
+      )
+    }
   }
 }
 
