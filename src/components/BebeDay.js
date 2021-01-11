@@ -50,25 +50,30 @@ class BebeDay extends React.Component {
       if (tracking.error) {
         alert(tracking.error)
       } else {
-        let trackingDataArray = this.state.trackingData.slice()
-        trackingDataArray.push(tracking.data)
         this.setState({
           ...this.state,
-          trackingData: trackingDataArray,
-          start_time: "",
-          end_time: "",
-          info_type: "food",
-          amount: 0,
-          amount_unit: "",
-          note: ""
+          trackingData: this.state.trackingData.concat(tracking.data)
         })
       }
+    })
+  }
+
+  resetForm = () => {
+    this.setState({
+      ...this.state,
+      start_time: "",
+      end_time: "",
+      info_type: "food",
+      amount: 0,
+      amount_unit: "",
+      note: ""
     })
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
     this.createTracking()
+    this.resetForm()
   }
 
   deleteTracking = (event) => {
@@ -121,8 +126,8 @@ class BebeDay extends React.Component {
             {this.state.trackingData.length > 0 ? this.state.trackingData.map((data) => this.createDataRow(data)) : null}
 
             <tr>
-              <td><label>Start:</label><input type="time" name="start_time" onChange={this.handleChange}></input> <label>End:</label><input type="time" name="end_time" onChange={this.handleChange}></input></td>
-              <td><select name="info_type" onChange={this.handleChange}>
+              <td><label>Start:</label><input type="time" name="start_time" onChange={this.handleChange} value={this.state.start_time}></input> <label>End:</label><input type="time" name="end_time" onChange={this.handleChange} value={this.state.end_time}></input></td>
+              <td><select name="info_type" onChange={this.handleChange} value={this.state.info_type}>
                 <option value="food">food</option>
                 <option value="water">water</option>
                 <option value="pee">pee</option>
@@ -130,9 +135,9 @@ class BebeDay extends React.Component {
                 <option value="exercise">exercise</option>
                 <option value="sleep">sleep</option>
             </select></td>
-          <td><input type="number" name="amount" placeholder="amount" onChange={this.handleChange}/></td>
-              <td><input type="text" name="amount_unit" placeholder="unit" onChange={this.handleChange}/></td>
-              <td><input type="text" name="note" placeholder="note" onChange={this.handleChange}/></td>
+          <td><input type="number" name="amount" placeholder="amount" onChange={this.handleChange} value={this.state.amount}/></td>
+              <td><input type="text" name="amount_unit" placeholder="unit" onChange={this.handleChange} value={this.state.amount_unit}/></td>
+              <td><input type="text" name="note" placeholder="note" onChange={this.handleChange} value={this.state.note}/></td>
               <td><input type="submit" className="addSubmit" value="+"/></td>
             </tr>
             </tbody>
