@@ -1,5 +1,5 @@
 import React from 'react';
-import Time from 'react-time-format'
+// import Time from 'react-time-format'
 import { connect } from 'react-redux'
 
 
@@ -91,7 +91,7 @@ class BebeDay extends React.Component {
   createDataRow = (data) => {
     return(
       <tr key={data.id}>
-        <td><Time value={data.attributes.start_time} format="hh:mm"/> {data.attributes.end_time === null ? null:<> - </>} <Time value={data.attributes.end_time} format="hh:mm"/></td>
+        // <td><Time value={data.attributes.start_time} format="hh:mm"/> {data.attributes.end_time === null ? null:<> - </>} <Time value={data.attributes.end_time} format="hh:mm"/></td>
         <td>{data.attributes.info_type}</td>
         <td>{data.attributes.amount}</td>
         <td>{data.attributes.amount_unit}</td>
