@@ -59,7 +59,7 @@ class BebeForm extends React.Component {
             <input type='text' value={this.state.img} name="img" onChange={this.handleChange} /><br/>
 
             </div>
-            <input type='submit' className="center-button"/>
+            <input type='submit' className="center-button" value="Add New Bébé"/>
           </form>
         </div>
       )
