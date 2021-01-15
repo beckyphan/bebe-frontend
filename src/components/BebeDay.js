@@ -72,16 +72,17 @@ class BebeDay extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.createTracking()
-    this.resetForm()
+    if (event.target[0].attributes[0].nodeValue === "delete") {
+      return null
+    } else {
+      this.createTracking()
+      this.resetForm()
+    }
   }
 
   deleteTracking = (event) => {
     fetch('http://localhost:3000/api/v1/users/' + this.props.user.id + '/bebes/' + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings/' + event.target.id , {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      }
+      method: "DELETE"
     })
     .then(response => response.json())
     .then(tracking => {
