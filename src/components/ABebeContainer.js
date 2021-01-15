@@ -20,7 +20,8 @@ class ABebeContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    ...state
+    user: state.user,
+    bebes: state.bebes
   }
 }
 
