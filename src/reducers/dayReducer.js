@@ -7,6 +7,9 @@ export default function dayReducer(state = [], action) {
     case 'CREATE_DAY':
       return state.concat(action.payload.data)
 
+    case 'CLEAR_DAYS':
+      return []
+
     default:
       return state
   }

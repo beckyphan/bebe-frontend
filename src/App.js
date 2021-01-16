@@ -33,6 +33,9 @@ class App extends React.Component {
           <Route exact path='/settings'>
             { !!this.props.user.id ? <UserContainer />: <Redirect to='/' />}
           </Route>
+          <Route exact path='/logout'>
+            <Redirect to='/' />
+          </Route>
           <Route exact path='/' component={HomePage} />
         </Switch>
       </div>
@@ -43,8 +46,9 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   // access things in our store as this.props
   return {
-    ...state
+    user: state.user,
+    bebes: state.bebes
   }
 }
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps)(App);

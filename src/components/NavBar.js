@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logOut } from '../actions/logOut'
 
 const NavBar = (props) => {
 
@@ -12,6 +14,7 @@ const NavBar = (props) => {
         <div className="nav">
           <NavLink exact activeClassName="active" className="nav-link" to="/bebes">my bébés</NavLink>
           <NavLink exact activeClassName="active" className="nav-link" to="/settings">my profile</NavLink>
+          <NavLink exact className="nav-link" to="/logout" onClick={() => props.logOut()}>log out</NavLink>
         </div>
       </div>
     )
@@ -25,4 +28,4 @@ const NavBar = (props) => {
   }
 }
 
-export default NavBar
+export default connect(null, { logOut })(NavBar)

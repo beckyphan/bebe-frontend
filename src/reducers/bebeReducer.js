@@ -20,6 +20,8 @@ export default function bebeReducer(state = [], action) {
       case 'DELETE_BEBE':
         return state.filter(bebe => bebe.id !== action.payload.data.id)
 
+      case 'CLEAR_BEBES':
+        return []
       default:
         return state
   }
