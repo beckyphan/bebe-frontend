@@ -24,7 +24,11 @@ class App extends React.Component {
             { !!this.props.user.id ? <Redirect to='/bebes' />: <RegistrationForm />}
           </Route>
           <Route exact path='/bebes/:id' render={props => {
-              return <ABebeContainer user={this.props.user} bebes={this.props.bebes} {...props} />
+              if (!this.props.user.id) {
+                return <Redirect to='/' />
+              } else {
+                return <ABebeContainer user={this.props.user} bebes={this.props.bebes} {...props} />
+              }
             }
           } />
           <Route exact path='/bebes'>
