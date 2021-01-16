@@ -5,6 +5,7 @@ export function fetchBebes(userId) {
     .then(response => response.json())
     .then(bebes => {
       dispatch({type: 'FETCH_BEBES', payload: bebes})
+      dispatch({type: 'CLEAR_DAYS'})
     })
   }
 }
