@@ -11,6 +11,7 @@ const NavBar = (props) => {
         <h2>Welcome, {props.user.attributes.name}!</h2>
         <div className="nav">
           <NavLink exact activeClassName="active" className="nav-link" to="/bebes">my bébés</NavLink>
+          <NavLink exact activeClassName="active" className="nav-link" to="/settings">my profile</NavLink>
         </div>
       </div>
     )

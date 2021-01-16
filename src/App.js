@@ -8,6 +8,7 @@ import LoginForm from './components/LoginForm'
 import RegistrationForm from './components/RegistrationForm'
 import BebesContainer from './components/BebesContainer'
 import ABebeContainer from './components/ABebeContainer'
+import UserContainer from './components/UserContainer'
 
 class App extends React.Component {
 
@@ -28,6 +29,9 @@ class App extends React.Component {
           } />
           <Route exact path='/bebes'>
             { !!this.props.user.id ? <BebesContainer />: <Redirect to='/' />}
+          </Route>
+          <Route exact path='/settings'>
+            { !!this.props.user.id ? <UserContainer />: <Redirect to='/' />}
           </Route>
           <Route exact path='/' component={HomePage} />
         </Switch>
