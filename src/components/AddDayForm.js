@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { createDay } from '../actions/createDay';
 
 class AddDayForm extends React.Component {
-  constructor() {
-    super()
+
+  constructor(props) {
+    super(props)
     this.state = {
       newDayData: ""
     }
@@ -20,12 +21,12 @@ class AddDayForm extends React.Component {
     event.preventDefault()
 
     let newBebeDay = {
-      bebe_id: this.props.bebe.id,
+      bebe_id: this.props.bebes.bebe.id,
       note: "",
       date: this.state.newDayData
     }
 
-    this.props.createDay(newBebeDay, this.props.bebe.relationships.user.data.id)
+    this.props.createDay(newBebeDay, this.props.bebes.bebe.relationships.user.data.id)
 
     this.setState({
       ...this.state,
@@ -46,4 +47,11 @@ class AddDayForm extends React.Component {
 
 }
 
-export default connect(null, { createDay })(AddDayForm)
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    bebes: state.bebes
+  }
+}
+
+export default connect(mapStateToProps, { createDay })(AddDayForm)

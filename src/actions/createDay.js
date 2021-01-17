@@ -9,9 +9,8 @@ export const createDay = (newBebeDay, userId) => {
       })
     .then(response => response.json())
     .then(day => {
-      debugger
-      if (day.error) {
-        alert(day.error)
+      if (!!day.date) {
+        alert("That date already exists.")
       } else {
         dispatch({type: 'CREATE_DAY', payload: day})
       }
