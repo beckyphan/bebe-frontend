@@ -41,10 +41,10 @@ class EditBebeForm extends React.Component {
       body = <form onSubmit={this.handleSubmit} className='edit-bebe form'>
         <div className="align-left">
         <label>Name: </label>
-        <input type='text' value={this.state.name} name='name' onChange={this.handleChange} /><br/>
+        <input required type='text' value={this.state.name} name='name' onChange={this.handleChange} /><br/>
 
         <label>Birthdate: </label>
-        <input type='date' value={this.state.birthdate} name="birthdate" onChange={this.handleChange} /><br/>
+        <input required type='date' value={this.state.birthdate} name="birthdate" onChange={this.handleChange} /><br/>
 
         <label>Kind: </label>
         <select name="kind" value={this.state.kind} onChange={this.handleChange}>
