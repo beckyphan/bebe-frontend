@@ -4,6 +4,7 @@ import { createDay } from '../actions/createDay';
 
 class AddDayForm extends React.Component {
   constructor() {
+    super()
     this.state = {
       newDayData: ""
     }
@@ -36,7 +37,7 @@ class AddDayForm extends React.Component {
     return (
       <>
         <form className="addDay" onSubmit={this.handleSubmit}>
-          <input type="date" name="newDayData" value={this.state.newDayData} onChange={this.handleChange} />
+          <input required type="date" name="newDayData" value={this.state.newDayData} onChange={this.handleChange} />
           <input type="submit" className="addSubmit" value="+"/>
         </form>
       </>

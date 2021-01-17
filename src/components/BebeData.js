@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux'
 import BebeDays from './BebeDays'
 import DisplayBebeInfo from './DisplayBebeInfo'
 import EditBebeForm from './EditBebeForm'
@@ -38,4 +37,4 @@ class BebeData extends React.Component {
   }
 }
 
-export default connect(null, {createDay})(BebeData)
+export default BebeData
