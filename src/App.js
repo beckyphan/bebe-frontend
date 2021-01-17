@@ -9,6 +9,7 @@ import RegistrationForm from './components/RegistrationForm'
 import BebesContainer from './components/BebesContainer'
 import ABebeContainer from './components/ABebeContainer'
 import UserContainer from './components/UserContainer'
+import DeleteAccount from './components/DeleteAccount'
 
 class App extends React.Component {
 
@@ -33,6 +34,9 @@ class App extends React.Component {
           } />
           <Route exact path='/bebes'>
             { !!this.props.user.id ? <BebesContainer />: <Redirect to='/' />}
+          </Route>
+          <Route exact path='/deleteaccount'>
+            { !!this.props.user.id ? <DeleteAccount />: <Redirect to='/'/>}
           </Route>
           <Route exact path='/settings'>
             { !!this.props.user.id ? <UserContainer />: <Redirect to='/' />}
