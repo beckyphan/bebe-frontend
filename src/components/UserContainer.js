@@ -1,23 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchBebes } from '../actions/fetchBebes'
+import UserData from './UserData'
 
-const UserContainer = (props) => {
+class UserContainer extends React.Component {
 
-  return (
-    <div className="profile">
-      <p>Name: {props.user.attributes.name}</p>
-      <p>Username: {props.user.attributes.username}</p>
-      <br/>
-      <p>Total Number of Bébés: {props.bebes.length}</p>
-      <ul>
-        <li>Humans: {(props.bebes.filter(item => item.attributes.kind === "human")).length}</li>
-        <li>Pets: {(props.bebes.filter(item => item.attributes.kind === "pet")).length}</li>
-        <li>Plants: {(props.bebes.filter(item => item.attributes.kind === "plant")).length}</li>
-      </ul>
+  componentDidMount() {
+    this.props.fetchBebes(this.props.user.id)
+  }
 
-    </div>
-  )
-
+  render() {
+    if (Array.isArray(this.props.bebes)) {
+      return (
+        <UserData
+          name={this.props.user.attributes.name}
+          username={this.props.user.attributes.username}
+          bebesNumber={this.props.bebes.length}
+          humansNum={(this.props.bebes.filter(item => item.attributes.kind === "human")).length}
+          petsNum={(this.props.bebes.filter(item => item.attributes.kind === "pet")).length}
+          plantsNum={(this.props.bebes.filter(item => item.attributes.kind === "plant")).length} />
+      )
+    } else {
+      return null
+    }
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -27,4 +33,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(UserContainer)
+export default connect(mapStateToProps, { fetchBebes })(UserContainer)
