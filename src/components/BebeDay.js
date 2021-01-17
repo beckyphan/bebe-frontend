@@ -97,7 +97,7 @@ class BebeDay extends React.Component {
   createDataRow = (data) => {
     return(
       <tr key={data.id}>
-        <td>{format(addHours(new Date(data.attributes.start_time), 8), 'p')} {data.attributes.end_time === null ? null:<> - </>}{data.attributes.end_time === null ? null: format(addHours(new Date(data.attributes.end_time), 8), 'p')}</td>
+        <td>{data.attributes.start_time === null ? null: format(addHours(new Date(data.attributes.start_time), 8), 'p')} {data.attributes.end_time === null ? null:<> - </>}{data.attributes.end_time === null ? null: format(addHours(new Date(data.attributes.end_time), 8), 'p')}</td>
         <td>{data.attributes.info_type}</td>
         <td>{data.attributes.amount}</td>
         <td>{data.attributes.amount_unit}</td>
@@ -117,9 +117,9 @@ class BebeDay extends React.Component {
             <tbody>
               <tr>
                 <th>Start/End Time</th>
-                <th>Data</th>
-                <th>Amount</th>
-                <th>Amount Unit</th>
+                <th>Data*</th>
+                <th>Amount*</th>
+                <th>Amount Unit*</th>
                 <th>Note</th>
                 <th></th>
               </tr>
@@ -136,8 +136,8 @@ class BebeDay extends React.Component {
                 <option value="exercise">exercise</option>
                 <option value="sleep">sleep</option>
             </select></td>
-          <td><input type="number" name="amount" placeholder="amount" onChange={this.handleChange} value={this.state.amount}/></td>
-              <td><input type="text" name="amount_unit" placeholder="unit" onChange={this.handleChange} value={this.state.amount_unit}/></td>
+          <td><input required type="number" name="amount" placeholder="amount" onChange={this.handleChange} value={this.state.amount}/></td>
+              <td><input required type="text" name="amount_unit" placeholder="unit" onChange={this.handleChange} value={this.state.amount_unit}/></td>
               <td><input type="text" name="note" placeholder="note" onChange={this.handleChange} value={this.state.note}/></td>
               <td><input type="submit" className="addSubmit" value="+"/></td>
             </tr>
