@@ -72,11 +72,11 @@ class BebeDay extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    if (event.target[0].attributes[0].nodeValue === "delete") {
-      return null
-    } else {
+    if (event.nativeEvent.submitter.className === "addSubmit") {
       this.createTracking()
       this.resetForm()
+    } else {
+      return null
     }
   }
 
