@@ -11,7 +11,7 @@ const UserData = (props) => {
       <ul>
         <li>Humans: {props.humansNum}</li>
         <li>Pets: {props.petsNum}</li>
-        <li>Plants: {props.plantNum}</li>
+        <li>Plants: {props.plantsNum}</li>
       </ul>
 
     </div>
