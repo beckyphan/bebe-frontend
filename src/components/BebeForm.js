@@ -39,13 +39,13 @@ class BebeForm extends React.Component {
         <div className="new-card">
           <form onSubmit={this.handleSubmit} className='new-bebe form'>
             <div className="align-left">
-            <label>Name: </label>
+            <label>Name*: </label>
             <input required type='text' value={this.state.name} name='name' onChange={this.handleChange} /><br/>
 
-            <label>Birthdate: </label>
+            <label>Birthdate*: </label>
             <input required type='date' value={this.state.birthdate} name="birthdate" onChange={this.handleChange} /><br/>
 
-            <label>Kind: </label>
+            <label>Kind*: </label>
             <select name="kind" value={this.state.kind} onChange={this.handleChange}>
               <option value="human">Human</option>
               <option value="plant">Plant</option>
