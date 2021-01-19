@@ -27,7 +27,7 @@ class BebeDay extends React.Component {
   }
 
   handleClick = () => {
-    fetch('http://localhost:3000/api/v1/users/' + this.props.user.id + '/bebes/'  + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings')
+    fetch('https://my-bebe-api.herokuapp.com/api/v1/users/' + this.props.user.id + '/bebes/'  + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings')
     .then(response => response.json())
     .then(trackings => {
       this.setState({
@@ -38,7 +38,7 @@ class BebeDay extends React.Component {
   }
 
   createTracking = () => {
-    fetch('http://localhost:3000/api/v1/users/' + this.props.user.id + '/bebes/'  + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings', {
+    fetch('https://my-bebe-api.herokuapp.com/api/v1/users/' + this.props.user.id + '/bebes/'  + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings', {
       method: "POST",
       headers: {
       'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ class BebeDay extends React.Component {
   }
 
   deleteTracking = (event) => {
-    fetch('http://localhost:3000/api/v1/users/' + this.props.user.id + '/bebes/' + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings/' + event.target.id , {
+    fetch('https://my-bebe-api.herokuapp.com/api/v1/users/' + this.props.user.id + '/bebes/' + this.props.bebes.bebe.id + '/days/' + this.props.dayId + '/trackings/' + event.target.id , {
       method: "DELETE"
     })
     .then(response => response.json())

@@ -1,6 +1,6 @@
 export const createBebe = (bebeData, userId) => {
   return (dispatch) => {
-    fetch('http://localhost:3000/api/v1/users/' + userId + '/bebes', {
+    fetch('https://my-bebe-api.herokuapp.com/api/v1/users/' + userId + '/bebes', {
       method: "POST",
       headers: {
       'Content-Type': 'application/json'

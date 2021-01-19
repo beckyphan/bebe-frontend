@@ -1,6 +1,6 @@
 export const registerUser = (credentials) => {
   return (dispatch) => {
-    fetch('http://localhost:3000/api/v1/users', {
+    fetch('https://my-bebe-api.herokuapp.com/api/v1/users', {
       method: "POST",
       headers: {
       'Content-Type': 'application/json'
