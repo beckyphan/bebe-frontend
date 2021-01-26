@@ -10,10 +10,11 @@ export const createBebe = (bebeData, userId) => {
     .then(response => response.json())
     .then(bebe => {
       if (bebe.error) {
-        alert(bebe.error)
-      } else {
-        dispatch({type: 'CREATE_BEBE', payload: bebe})
+        return alert(bebe.error)
       }
+
+      dispatch({type: 'CREATE_BEBE', payload: bebe})
+
     })
   }
 }
